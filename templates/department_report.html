@@ -1,0 +1,61 @@
+<!-- templates/department_report.html -->
+{% extends "base.html" %}
+
+{% block title %}HRMS - Department Report{% endblock %}
+
+{% block header %}Department Report{% endblock %}
+
+{% block extra_head %}
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+{% endblock %}
+
+{% block content %}
+    <h2>Employee Count by Department</h2>
+    <canvas id="departmentChart"></canvas>
+    
+    <h2>Department Data</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Department</th>
+                <th>Employee Count</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for department, count in report_data %}
+            <tr>
+                <td>{{ department }}</td>
+                <td>{{ count }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
+
+{% block scripts %}
+    <script>
+        const ctx = document.getElementById('departmentChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: {{ report_data|map(attribute=0)|list|tojson }},
+                datasets: [{
+                    label: 'Employee Count',
+                    data: {{ report_data|map(attribute=1)|list|tojson }},
+                    backgroundColor: 'rgba(75, 192, 192, 0.6)',
+                    borderColor: 'rgba(75, 192, 192, 1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        stepSize: 1
+                    }
+                }
+            }
+        });
+    </script>
+{% endblock %}

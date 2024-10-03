@@ -1,0 +1,30 @@
+<!-- templates/base.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}HRMS{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    {% block extra_head %}{% endblock %}
+</head>
+<body>
+    <header>
+        <h1>{% block header %}HRMS{% endblock %}</h1>
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('employee.index') }}">Home</a></li>
+                <li><a href="{{ url_for('employee.employees') }}">Employees</a></li>
+                <li><a href="{{ url_for('reports.department_report') }}">Department Report</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+    <footer>
+        <p>&copy; 2024 HRMS. All rights reserved.</p>
+    </footer>
+    {% block scripts %}{% endblock %}
+</body>
+</html>
