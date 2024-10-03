@@ -9,25 +9,25 @@ This is a basic HRMS (Human Resource Management System) built with Flask. It pro
 - Department-wise Employee Count Report
 
 # Features Detailed Explanation
-```
+
 Employee Management:
-```
+
 
 Add Employee: Employees can be added via the /employees route using a POST request.
 View Employees: The list of employees is displayed on the same route.
 Update Employee: An individual employee's details can be updated through the /employee/<id> route.
 Delete Employee: Employees can be deleted using the /employee/delete/<id> route.
 
-```
+
 Attendance Management:
-```
+
 
 Mark Attendance: Attendance can be marked via the /attendance route using a POST request.
 Get Attendance: The attendance records for a specific employee can be retrieved via the /attendance/<employee_id> route.
 
-```
+
 Report Generation:
-```
+
 
 Department Report: The department report can be generated and viewed through the /report route.
 
@@ -100,10 +100,19 @@ The application will be accessible at `http://localhost:5000`.
 To ensure that all features work , consider the following testing steps:
 
 Run the Application: Start the Flask app with python app.py.
+
 Add Employee: Navigate to the employees page and test adding an employee.
+
 View Employee List: Check if the added employee appears in the list.
+
 Update Employee: Select an employee to edit and test the update functionality.
+
 Delete Employee: Test the deletion of an employee.
+
 Mark Attendance: Use the attendance functionality to mark and retrieve attendance for employees.
+
 Generate Report: Check the report generation functionality for department statistics.
 
+# reference
+
+Youtube : https://www.youtube.com/watch?v=6L3HNyXEais&t=1086s
